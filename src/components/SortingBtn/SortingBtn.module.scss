@@ -1,0 +1,25 @@
+.button {
+  height: 28px;
+  background: transparent;
+  outline: none;
+  border: 1px solid #E5E5E5;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  cursor: pointer;
+  &_active {
+    border: 1px solid #41522E;
+  }
+}
+
+.text {
+  color: #99A0A3;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 20px;
+  margin-right: 9px;
+  &_active {
+    color: #41522E;
+  }
+}

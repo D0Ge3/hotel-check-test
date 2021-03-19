@@ -1,5 +1,23 @@
 .root {
-  width: 100vw;
-  height: 100vh;
   background-color: #F4F4F4;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  width: 1048px;
+  height: 902px;
+  margin: 0 auto;
+}
+
+.panel {
+  height: 100%;
+  width: 360px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.main {
+  width: 664px;
 }
