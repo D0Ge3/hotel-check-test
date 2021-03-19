@@ -1,7 +1,7 @@
 import React from 'react'
 
-import { TextField } from '../TextField/TextField'
-import { Button } from '../Button/Button'
+import { TextField } from '../../ui/TextField/TextField'
+import { Button } from '../../ui/Button/Button'
 
 import s from './Filters.module.scss'
 

@@ -1,10 +1,10 @@
 import React from 'react'
 
-import { FavouriteIcon } from '../FavouriteIcon/FavouriteIcon'
+import { FavouriteIcon } from '../../ui/icons/FavouriteIcon/FavouriteIcon'
+import { HouseIcon } from '../../ui/icons/HouseIcon/HouseIcon'
 import { StarsIndicator } from '../StarsIndicator/StarsIndicator'
 
 import s from './HotelItem.module.scss'
-import { HouseIcon } from '../HouseIcon/HouseIcon'
 
 export const HotelItem = ({ style, showIcon }) => {
   return (

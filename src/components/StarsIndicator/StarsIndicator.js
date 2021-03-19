@@ -1,7 +1,7 @@
 import React from 'react'
 import { nanoid } from 'nanoid'
 
-import { StarIcon } from '../StarIcon/StarIcon'
+import { StarIcon } from '../../ui/icons/StarIcon/StarIcon'
 
 import s from './StarsIndicator.module.scss'
 

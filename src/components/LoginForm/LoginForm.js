@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 
-import { TextField } from '../TextField/TextField'
+import { TextField } from '../../ui/TextField/TextField'
+import { Button } from '../../ui/Button/Button'
 
 import s from './LoginForm.module.scss'
-import { Button } from '../Button/Button'
 
 export const LoginForm = () => {
   const [login, setLogin] = useState('')

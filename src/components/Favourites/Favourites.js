@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { SortingBtn } from '../SortingBtn/SortingBtn'
+import { SortingBtn } from '../../ui/SortingBtn/SortingBtn'
 import { HotelsList } from '../HotelsList/HotelsList'
 
 import s from './Favourites.module.scss'

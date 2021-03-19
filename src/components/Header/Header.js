@@ -1,5 +1,5 @@
 import React from 'react'
-import { LogOutIcon } from '../LogOutIcon/LogOutIcon'
+import { LogOutIcon } from '../../ui/icons/LogOutIcon/LogOutIcon'
 
 import s from './Header.module.scss'
 

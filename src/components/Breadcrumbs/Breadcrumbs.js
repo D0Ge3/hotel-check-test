@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { BreadcrumbIcon } from '../BreadcrumbIcon/BreadcrumbIcon'
+import { BreadcrumbIcon } from '../../ui/icons/BreadcrumbIcon/BreadcrumbIcon'
 
 import s from './Breadcrumbs.module.scss'
 
