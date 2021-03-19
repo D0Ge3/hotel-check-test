@@ -2,6 +2,12 @@
   width: 100%;
   border-bottom: 1px solid rgba(135, 135, 135, 0.2);
   display: flex;
+  flex-direction: row;
+}
+
+.infoWrapper {
+  width: 100%;
+  display: flex;
   flex-direction: column;
 }
 
