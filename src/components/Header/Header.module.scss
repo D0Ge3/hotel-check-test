@@ -1,0 +1,28 @@
+.root {
+  height: 92px;
+  display: flex;
+  flex-direction: row;
+  background-color: transparent;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 31px;
+}
+
+.title {
+  color: #424242;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 28px;
+}
+
+.logout {
+  color: #41522E;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 20px;
+  display: flex;
+  align-items: center;
+  width: 83px;
+  justify-content: space-between;
+  cursor: pointer;
+}

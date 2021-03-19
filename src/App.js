@@ -1,6 +1,7 @@
 import React from 'react'
 import { Login } from './pages/Login/Login'
 import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom'
+import { Hotels } from './pages/Hotels/Hotels'
 
 export const App = () => {
   return (
@@ -8,7 +9,10 @@ export const App = () => {
       <Route path="/login">
         <Login />
       </Route>
-      <Redirect from="/" to="/login" />
+      <Route path="/hotels">
+        <Hotels />
+      </Route>
+      {/* <Redirect from="/" to="/hotels" /> */}
     </Router>
   )
 }
