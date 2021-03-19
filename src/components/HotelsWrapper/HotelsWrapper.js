@@ -1,12 +1,16 @@
 import React from 'react'
 
+import { Breadcrumbs } from '../Breadcrumbs/Breadcrumbs'
+
 import s from './HotelsWrapper.module.scss'
-import { HotelItem } from '../HotelItem/HotelItem'
 
 export const HotelsWrapper = () => {
   return (
     <div className={s.wrapper}>
-      <HotelItem showIcon />
+      <div className={s.header}>
+        <Breadcrumbs city="Москва" />
+        <span className={s.date}>07 июля 2020</span>
+      </div>
     </div>
   )
 }

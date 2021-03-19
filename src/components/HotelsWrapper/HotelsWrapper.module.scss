@@ -1,7 +1,20 @@
 .wrapper {
-  width: 664px;
-  height: 902px;
+  box-sizing: border-box;
+  height: 100%;
   background-color: #FFFFFF;
   border-radius: 16px;
   padding: 48px 32px 52px 32px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.date {
+  color: #41522E;
+  font-weight: normal;
+  font-size: 24px;
+  line-height: 28px;
 }
