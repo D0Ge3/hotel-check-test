@@ -19,7 +19,9 @@
 
 ## Commands
 ### yarn
-```bash 
+```bash
+# Install modules
+yarn install 
 # Run app in dev mode
 yarn dev
 # Run express server (for heroku)
@@ -30,6 +32,8 @@ yarn build
 
 ### npm
 ```bash 
+# Install modules
+npm install 
 # Run app in dev mode
 npm dev
 # Run express server (for heroku)
