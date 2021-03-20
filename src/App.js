@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom'
 import { Hotels } from './pages/Hotels/Hotels'
 
 export const App = () => {
-  // require('moment/locale/ru.js')
+  require('moment/locale/ru.js')
   return (
     <Router>
       <Route path="/login">

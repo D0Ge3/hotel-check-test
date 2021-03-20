@@ -2,6 +2,7 @@ import React from 'react'
 import Slider from 'react-slick'
 import { nanoid } from 'nanoid'
 import { useSelector } from 'react-redux'
+import moment from 'moment'
 
 import { Breadcrumbs } from '../Breadcrumbs/Breadcrumbs'
 import { HotelsList } from '../HotelsList/HotelsList'
@@ -20,11 +21,16 @@ export const HotelsWrapper = () => {
   const hotels = useSelector((state) => state.hotels.hotels)
   const countFav = useSelector((state) => state.hotels.favourites.length)
   const imgs = useSelector((state) => state.hotels.imgs)
+  const filters = useSelector((state) => state.hotels.filters)
+  const checkInDate = moment(filters.checkIn).format('LL')
+
   return (
     <div className={s.wrapper}>
       <div className={s.header}>
-        <Breadcrumbs city="Москва" />
-        <span className={s.date}>07 июля 2020</span>
+        <Breadcrumbs city={filters.location} />
+        <span className={s.date}>
+          {checkInDate.slice(0, checkInDate.length - 3)}
+        </span>
       </div>
       <Slider className={s.carousel} {...settings}>
         {imgs.map((img) => (

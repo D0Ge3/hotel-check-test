@@ -1,12 +1,18 @@
 import React from 'react'
+import moment from 'moment'
 
+import NumberFormat from 'react-number-format'
 import { FavouriteIcon } from '../../ui/icons/FavouriteIcon/FavouriteIcon'
 import { HouseIcon } from '../../ui/icons/HouseIcon/HouseIcon'
 import { StarsIndicator } from '../StarsIndicator/StarsIndicator'
 
 import s from './HotelItem.module.scss'
-
-export const HotelItem = ({ style, showIcon, hotel, toggleFav }) => {
+// eslint-disable-next-line
+export const HotelItem = ({ style, showIcon, hotel, toggleFav, checkIn, checkOut }) => {
+  const daysNumber = moment
+    .duration(moment(checkOut).diff(moment(checkIn), 'days'), 'days')
+    .humanize()
+  const checkInDate = moment(checkIn).format('LL')
   return (
     <div style={style} className={s.wrapper}>
       {showIcon && <HouseIcon style={{ marginRight: '24px' }} />}
@@ -16,14 +22,25 @@ export const HotelItem = ({ style, showIcon, hotel, toggleFav }) => {
           <FavouriteIcon onClick={toggleFav} />
         </div>
         <div className={s.dateWrap}>
-          <span className={s.date}>28 June 2020</span>
-          <span className={s.days}>1 день</span>
+          <span className={s.date}>
+            {checkInDate.slice(0, checkInDate.length - 3)}
+          </span>
+          <span className={s.days}>
+            {daysNumber === 'день' ? '1 день' : daysNumber}
+          </span>
         </div>
         <div className={s.levelWrap}>
           <StarsIndicator countStars={hotel.stars} />
           <div className={s.priceWrap}>
             <span className={s.price}>Price:</span>
-            <span className={s.priceValue}>{hotel.priceAvg}Р</span>
+            <NumberFormat
+              displayType={'text'}
+              value={hotel.priceAvg.toFixed()}
+              thousandSeparator={' '}
+              renderText={(text) => (
+                <span className={s.priceValue}>{text} ₽</span>
+              )}
+            />
           </div>
         </div>
       </div>
