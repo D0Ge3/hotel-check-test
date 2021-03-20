@@ -1,5 +1,6 @@
 import React from 'react'
 
+import { CustomScrollbars } from '../../ui/CustomScrollbars/CustomScrollbars'
 import { SortingBtn } from '../../ui/SortingBtn/SortingBtn'
 import { HotelsList } from '../HotelsList/HotelsList'
 
@@ -13,7 +14,12 @@ export const Favourites = () => {
         <SortingBtn text="Рейтинг" style={{ marginRight: '9px' }} />
         <SortingBtn text="Цена" />
       </div>
-      <HotelsList />
+      <CustomScrollbars style={{ height: '290px' }}>
+        <div className={s.listWrapper}>
+          <HotelsList />
+          <HotelsList />
+        </div>
+      </CustomScrollbars>
     </div>
   )
 }

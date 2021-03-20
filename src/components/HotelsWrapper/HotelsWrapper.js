@@ -11,6 +11,7 @@ import img1 from '../../img/carousel/1.jpg'
 import img2 from '../../img/carousel/2.jpg'
 import img3 from '../../img/carousel/3.jpg'
 import img4 from '../../img/carousel/4.jpg'
+import { CustomScrollbars } from '../../ui/CustomScrollbars/CustomScrollbars'
 
 export const HotelsWrapper = () => {
   const settings = {
@@ -43,13 +44,13 @@ export const HotelsWrapper = () => {
       <span className={s.favouriteCount}>
         Добавлено в Избранное: <b>3</b> отеля
       </span>
-      <Scrollbars style={{ height: '529px' }}>
-        <div style={{ width: '584px' }}>
+      <CustomScrollbars style={{ height: '529px' }}>
+        <div className={s.listWrap}>
           <HotelsList showIcon />
           <HotelsList showIcon />
           <HotelsList showIcon />
         </div>
-      </Scrollbars>
+      </CustomScrollbars>
     </div>
   )
 }
