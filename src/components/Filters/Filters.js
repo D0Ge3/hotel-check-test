@@ -1,22 +1,37 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import moment from 'moment'
+import { useDispatch } from 'react-redux'
 
 import { TextField } from '../../ui/TextField/TextField'
 import { Button } from '../../ui/Button/Button'
-
-import s from './Filters.module.scss'
 import { DateField } from '../../ui/DateField/DateField'
 
+import { getHotels } from '../../redux/actions/hotelsActions'
+
+import s from './Filters.module.scss'
+
 export const Filters = () => {
+  const dispatch = useDispatch()
   const labelStyle = { color: '#424242', fontWeight: 500 }
   const [checkIn, setCheckIn] = useState(new Date())
   const [daysNumber, setDaysNumber] = useState(1)
   const [location, setLocation] = useState('Москва')
+  useEffect(() => {
+    loadHotels('2021-03-20', '2021-03-21', 'Москва')
+    // eslint-disable-next-line
+  }, [])
 
+  const loadHotels = (checkIn, checkOut, location) => {
+    dispatch(getHotels(checkIn, checkOut, location))
+  }
   const submiHandler = (e) => {
     e.preventDefault()
-    console.log(`checkIn=${moment(checkIn).format('l')}`)
-    console.log(`checkOut=${moment(checkIn).add(daysNumber, 'd').format('l')}`)
+    const checkInFormatted = moment(checkIn).format('YYYY-MM-DD')
+    const checkOutFormatted = moment(checkIn)
+      .add(daysNumber, 'd')
+      .format('YYYY-MM-DD')
+
+    loadHotels(checkInFormatted, checkOutFormatted, location)
   }
   return (
     <div className={s.wrapper}>
@@ -34,6 +49,8 @@ export const Filters = () => {
           name="appointmentDate"
           onChange={(value) => setCheckIn(value)}
           value={checkIn}
+          minDate={new Date()}
+          showDisabledMonthNavigation
         />
         <TextField
           value={daysNumber}

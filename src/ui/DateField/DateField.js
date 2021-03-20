@@ -27,6 +27,7 @@ export const DateField = ({ name, value, onChange, labelStyle, label, style, err
         name={name}
         id={name}
         className={fieldCn}
+        {...rest}
       />
     </div>
   )

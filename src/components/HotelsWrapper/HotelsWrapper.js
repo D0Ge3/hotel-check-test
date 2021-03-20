@@ -1,34 +1,25 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import Slider from 'react-slick'
-import { useSelector, useDispatch } from 'react-redux'
+import { nanoid } from 'nanoid'
+import { useSelector } from 'react-redux'
 
 import { Breadcrumbs } from '../Breadcrumbs/Breadcrumbs'
 import { HotelsList } from '../HotelsList/HotelsList'
+import { CustomScrollbars } from '../../ui/CustomScrollbars/CustomScrollbars'
 
 import s from './HotelsWrapper.module.scss'
 
-import img1 from '../../img/carousel/1.jpg'
-import img2 from '../../img/carousel/2.jpg'
-import img3 from '../../img/carousel/3.jpg'
-import img4 from '../../img/carousel/4.jpg'
-import { CustomScrollbars } from '../../ui/CustomScrollbars/CustomScrollbars'
-import { getHotels } from '../../redux/actions/hotelsActions'
-
 export const HotelsWrapper = () => {
-  const dispatch = useDispatch()
-
   const settings = {
     initialSlide: 0,
     slidesToShow: 3.5,
     slidesToScroll: 1,
     infinite: false,
   }
-  useEffect(() => {
-    dispatch(getHotels('2021-03-20', '2021-03-21', 'Москва'))
-    // eslint-disable-next-line
-  }, [])
+
   const hotels = useSelector((state) => state.hotels.hotels)
   const countFav = useSelector((state) => state.hotels.favourites.length)
+  const imgs = useSelector((state) => state.hotels.imgs)
   return (
     <div className={s.wrapper}>
       <div className={s.header}>
@@ -36,18 +27,11 @@ export const HotelsWrapper = () => {
         <span className={s.date}>07 июля 2020</span>
       </div>
       <Slider className={s.carousel} {...settings}>
-        <div className={s.imgWrap}>
-          <img className={s.img} src={img1} alt="" />
-        </div>
-        <div className={s.imgWrap}>
-          <img className={s.img} src={img2} alt="" />
-        </div>
-        <div className={s.imgWrap}>
-          <img className={s.img} src={img3} alt="" />
-        </div>
-        <div style={{ marginRight: 0 }} className={s.imgWrap}>
-          <img className={s.img} src={img4} alt="" />
-        </div>
+        {imgs.map((img) => (
+          <div key={nanoid()} className={s.imgWrap}>
+            <img className={s.img} src={img} alt="фото" />
+          </div>
+        ))}
       </Slider>
       <span className={s.favouriteCount}>
         Добавлено в Избранное: <b className={s.countValue}>{countFav}</b> отеля
