@@ -29,6 +29,7 @@ export const DateField = ({ name, value, onChange, labelStyle, label, style, err
         className={fieldCn}
         {...rest}
       />
+      {error && <span className={s.error}>{error}</span>}
     </div>
   )
 }
