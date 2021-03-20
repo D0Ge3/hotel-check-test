@@ -7,7 +7,7 @@
 - React
 - Redux + redux-saga
 - React-router
-- React-Bootstrap, CSS modules
+- Sass modules
 
 ## Structure
 
@@ -15,7 +15,7 @@
 - `/src/components` - components folder
 - `/src/ui` - reusable components
 - `/src/redux` - redux store and reducers with business logic
-- `/src/saga` - redux sagas
+- `/src/redux/sagas` - redux sagas
 
 ## Commands
 ### yarn
