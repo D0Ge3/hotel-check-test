@@ -3,7 +3,6 @@ import Slider from 'react-slick'
 
 import { Breadcrumbs } from '../Breadcrumbs/Breadcrumbs'
 import { HotelsList } from '../HotelsList/HotelsList'
-import Scrollbars from 'react-custom-scrollbars'
 
 import s from './HotelsWrapper.module.scss'
 
@@ -16,7 +15,6 @@ import { CustomScrollbars } from '../../ui/CustomScrollbars/CustomScrollbars'
 export const HotelsWrapper = () => {
   const settings = {
     initialSlide: 0,
-    // speed: 500,
     slidesToShow: 3.5,
     slidesToScroll: 1,
     infinite: false,
@@ -29,16 +27,16 @@ export const HotelsWrapper = () => {
       </div>
       <Slider className={s.carousel} {...settings}>
         <div className={s.imgWrap}>
-          <img className={s.img} src={img1} alt=""/>
+          <img className={s.img} src={img1} alt="" />
         </div>
         <div className={s.imgWrap}>
-          <img className={s.img} src={img2} alt=""/>
+          <img className={s.img} src={img2} alt="" />
         </div>
         <div className={s.imgWrap}>
-          <img className={s.img} src={img3} alt=""/>
+          <img className={s.img} src={img3} alt="" />
         </div>
         <div style={{ marginRight: 0 }} className={s.imgWrap}>
-          <img className={s.img} src={img4} alt=""/>
+          <img className={s.img} src={img4} alt="" />
         </div>
       </Slider>
       <span className={s.favouriteCount}>
