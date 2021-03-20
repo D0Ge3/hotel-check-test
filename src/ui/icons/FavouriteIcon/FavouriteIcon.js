@@ -1,8 +1,9 @@
 import React from 'react'
 
-export const FavouriteIcon = () => {
+export const FavouriteIcon = ({ onClick }) => {
   return (
     <svg
+      onClick={onClick}
       style={{ cursor: 'pointer' }}
       width="21"
       height="18"

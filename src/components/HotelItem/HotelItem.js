@@ -6,14 +6,14 @@ import { StarsIndicator } from '../StarsIndicator/StarsIndicator'
 
 import s from './HotelItem.module.scss'
 
-export const HotelItem = ({ style, showIcon, hotel }) => {
+export const HotelItem = ({ style, showIcon, hotel, toggleFav }) => {
   return (
     <div style={style} className={s.wrapper}>
       {showIcon && <HouseIcon style={{ marginRight: '24px' }} />}
       <div className={s.infoWrapper}>
         <div className={s.titleWrap}>
           <span className={s.title}>{hotel.hotelName}</span>
-          <FavouriteIcon />
+          <FavouriteIcon onClick={toggleFav} />
         </div>
         <div className={s.dateWrap}>
           <span className={s.date}>28 June 2020</span>

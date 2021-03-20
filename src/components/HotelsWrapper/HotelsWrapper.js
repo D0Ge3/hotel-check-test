@@ -16,6 +16,7 @@ import { getHotels } from '../../redux/actions/hotelsActions'
 
 export const HotelsWrapper = () => {
   const dispatch = useDispatch()
+
   const settings = {
     initialSlide: 0,
     slidesToShow: 3.5,
@@ -27,6 +28,7 @@ export const HotelsWrapper = () => {
     // eslint-disable-next-line
   }, [])
   const hotels = useSelector((state) => state.hotels.hotels)
+  const countFav = useSelector((state) => state.hotels.favourites.length)
   return (
     <div className={s.wrapper}>
       <div className={s.header}>
@@ -48,7 +50,7 @@ export const HotelsWrapper = () => {
         </div>
       </Slider>
       <span className={s.favouriteCount}>
-        Добавлено в Избранное: <b>3</b> отеля
+        Добавлено в Избранное: <b className={s.countValue}>{countFav}</b> отеля
       </span>
       <CustomScrollbars style={{ height: '529px' }}>
         <div className={s.listWrap}>
