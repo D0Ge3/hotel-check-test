@@ -18,8 +18,8 @@ const LoginSchema = Yup.object().shape({
   password: Yup.string()
     .required('Обязательное поле!')
     .min(8, 'Пароль должен быть длиннее 8 символов!')
-    .matches(/[A-Za-z]{1,}/, {
-      message: 'Пароль может состоять только из латиницы!',
+    .matches(/[A-Za-z0-9]{1,}/, {
+      message: 'Пароль может состоять только из латиницы и цифр!',
     }),
 })
 
