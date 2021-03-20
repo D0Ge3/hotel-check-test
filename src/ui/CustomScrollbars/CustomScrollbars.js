@@ -18,6 +18,7 @@ export const CustomScrollbars = ({ style, children, ...rest }) => {
   }
   return (
     <Scrollbars
+      hideTracksWhenNotNeeded
       style={style}
       {...rest}
       renderTrackVertical={({ style, ...props }) => (

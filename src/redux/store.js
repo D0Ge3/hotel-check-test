@@ -1,12 +1,14 @@
 import { applyMiddleware, createStore, combineReducers, compose } from 'redux'
 import createSagaMiddleware from 'redux-saga'
 import { rootSaga } from './sagas/rootSaga'
+import { appReducer } from './reducers/appReducer'
+import { hotelsReducer } from './reducers/hotelsReducer'
 
 const saga = createSagaMiddleware()
 
 let reducers = combineReducers({
-  // app: appReducer,
-  // hotels: hotelsReducer,
+  app: appReducer,
+  hotels: hotelsReducer,
 })
 
 export const store = createStore(

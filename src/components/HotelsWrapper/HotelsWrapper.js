@@ -1,5 +1,6 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Slider from 'react-slick'
+import { useSelector, useDispatch } from 'react-redux'
 
 import { Breadcrumbs } from '../Breadcrumbs/Breadcrumbs'
 import { HotelsList } from '../HotelsList/HotelsList'
@@ -11,14 +12,21 @@ import img2 from '../../img/carousel/2.jpg'
 import img3 from '../../img/carousel/3.jpg'
 import img4 from '../../img/carousel/4.jpg'
 import { CustomScrollbars } from '../../ui/CustomScrollbars/CustomScrollbars'
+import { getHotels } from '../../redux/actions/hotelsActions'
 
 export const HotelsWrapper = () => {
+  const dispatch = useDispatch()
   const settings = {
     initialSlide: 0,
     slidesToShow: 3.5,
     slidesToScroll: 1,
     infinite: false,
   }
+  useEffect(() => {
+    dispatch(getHotels('2021-03-20', '2021-03-21', 'Москва'))
+    // eslint-disable-next-line
+  }, [])
+  const hotels = useSelector((state) => state.hotels.hotels)
   return (
     <div className={s.wrapper}>
       <div className={s.header}>
@@ -44,9 +52,7 @@ export const HotelsWrapper = () => {
       </span>
       <CustomScrollbars style={{ height: '529px' }}>
         <div className={s.listWrap}>
-          <HotelsList showIcon />
-          <HotelsList showIcon />
-          <HotelsList showIcon />
+          <HotelsList hotels={hotels} showIcon />
         </div>
       </CustomScrollbars>
     </div>

@@ -1,4 +1,5 @@
 import React from 'react'
+import { useSelector } from 'react-redux'
 
 import { CustomScrollbars } from '../../ui/CustomScrollbars/CustomScrollbars'
 import { SortingBtn } from '../../ui/SortingBtn/SortingBtn'
@@ -7,6 +8,7 @@ import { HotelsList } from '../HotelsList/HotelsList'
 import s from './Favourites.module.scss'
 
 export const Favourites = () => {
+  const favHotels = useSelector((state) => state.hotels.favourites)
   return (
     <div className={s.wrapper}>
       <h3 className={s.title}>Избранное</h3>
@@ -16,8 +18,7 @@ export const Favourites = () => {
       </div>
       <CustomScrollbars style={{ height: '290px' }}>
         <div className={s.listWrapper}>
-          <HotelsList />
-          <HotelsList />
+          <HotelsList hotels={favHotels} />
         </div>
       </CustomScrollbars>
     </div>

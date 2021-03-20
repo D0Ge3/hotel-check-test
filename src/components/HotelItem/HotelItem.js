@@ -6,13 +6,13 @@ import { StarsIndicator } from '../StarsIndicator/StarsIndicator'
 
 import s from './HotelItem.module.scss'
 
-export const HotelItem = ({ style, showIcon }) => {
+export const HotelItem = ({ style, showIcon, hotel }) => {
   return (
     <div style={style} className={s.wrapper}>
       {showIcon && <HouseIcon style={{ marginRight: '24px' }} />}
       <div className={s.infoWrapper}>
         <div className={s.titleWrap}>
-          <span className={s.title}>Moscow Mariott Grand Hotel</span>
+          <span className={s.title}>{hotel.hotelName}</span>
           <FavouriteIcon />
         </div>
         <div className={s.dateWrap}>
@@ -20,10 +20,10 @@ export const HotelItem = ({ style, showIcon }) => {
           <span className={s.days}>1 день</span>
         </div>
         <div className={s.levelWrap}>
-          <StarsIndicator countStars={1} />
+          <StarsIndicator countStars={hotel.stars} />
           <div className={s.priceWrap}>
             <span className={s.price}>Price:</span>
-            <span className={s.priceValue}>23 924Р</span>
+            <span className={s.priceValue}>{hotel.priceAvg}Р</span>
           </div>
         </div>
       </div>
