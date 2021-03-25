@@ -40,7 +40,13 @@ export const Filters = () => {
     },
   })
   useEffect(() => {
-    loadHotels('2021-03-20', '2021-03-21', 'Москва')
+    const { checkIn, daysNumber, location } = formik.values
+    loadHotels(
+      moment(checkIn).format('YYYY-MM-DD'),
+      moment(checkIn).add(daysNumber, 'd').format('YYYY-MM-DD'),
+      location
+    )
+    console.log('useEffect')
     // eslint-disable-next-line
   }, [])
 
