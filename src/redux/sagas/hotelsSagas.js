@@ -23,6 +23,17 @@ function* getHotels(args) {
       location: args.location,
     })
   )
-  yield put(setHotels(res.data))
+  yield put(
+    setHotels(
+      res.data.map((h) => ({
+        ...h,
+        check: {
+          checkIn: args.checkIn,
+          checkOut: args.checkOut,
+          location: args.location,
+        },
+      }))
+    )
+  )
   yield put(setIsLoading(false))
 }

@@ -8,11 +8,14 @@ import { StarsIndicator } from '../StarsIndicator/StarsIndicator'
 
 import s from './HotelItem.module.scss'
 // eslint-disable-next-line
-export const HotelItem = ({ style, showIcon, hotel, toggleFav, checkIn, checkOut }) => {
+export const HotelItem = ({ style, showIcon, hotel, toggleFav }) => {
   const daysNumber = moment
-    .duration(moment(checkOut).diff(moment(checkIn), 'days'), 'days')
+    .duration(
+      moment(hotel.check.checkOut).diff(moment(hotel.check.checkIn), 'days'),
+      'days'
+    )
     .humanize()
-  const checkInDate = moment(checkIn).format('LL')
+  const checkInDate = moment(hotel.check.checkIn).format('LL')
   return (
     <div style={style} className={s.wrapper}>
       {showIcon && <HouseIcon style={{ marginRight: '24px' }} />}
