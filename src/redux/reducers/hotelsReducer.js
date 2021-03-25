@@ -1,3 +1,4 @@
+import { nanoid } from 'nanoid'
 import * as actionTypes from '../actions/hotelsActions'
 
 import img1 from '../../img/carousel/1.jpg'
@@ -9,7 +10,12 @@ const initialState = {
   hotels: [],
   favourites: [],
   filters: {},
-  imgs: [img1, img2, img3, img4],
+  imgs: [
+    { id: nanoid(), img: img1 },
+    { id: nanoid(), img: img2 },
+    { id: nanoid(), img: img3 },
+    { id: nanoid(), img: img4 },
+  ],
 }
 
 export const hotelsReducer = (state = initialState, action) => {
@@ -19,10 +25,8 @@ export const hotelsReducer = (state = initialState, action) => {
     case actionTypes.TOGGLE_FAVOURITE:
       return {
         ...state,
-        favourites: state.favourites.find(
-          (h) => h.hotelId === action.hotel.hotelId
-        )
-          ? state.favourites.filter((f) => f.hotelId !== action.hotel.hotelId)
+        favourites: state.favourites.find((h) => h.id === action.hotel.id)
+          ? state.favourites.filter((f) => f.id !== action.hotel.id)
           : [...state.favourites, action.hotel],
       }
     case actionTypes.SET_FILTERS:

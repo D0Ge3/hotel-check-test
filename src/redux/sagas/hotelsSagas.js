@@ -1,4 +1,5 @@
 import { takeEvery, put, call } from 'redux-saga/effects'
+import { nanoid } from 'nanoid'
 
 import { setHotels, GET_HOTELS, setFilters } from '../actions/hotelsActions'
 import { setIsLoading } from '../actions/appActions'
@@ -32,6 +33,7 @@ function* getHotels(args) {
           checkOut: args.checkOut,
           location: args.location,
         },
+        id: nanoid(),
       }))
     )
   )

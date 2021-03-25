@@ -10,7 +10,7 @@ export const HotelsList = ({ showIcon, hotels }) => {
 
   const hotelsItems = hotels.map((hotel) => (
     <HotelItem
-      key={hotel.hotelId}
+      key={hotel.id}
       hotel={hotel}
       style={{ marginTop: '16px' }}
       showIcon={showIcon}

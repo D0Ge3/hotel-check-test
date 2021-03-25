@@ -1,6 +1,5 @@
 import React from 'react'
 import Slider from 'react-slick'
-import { nanoid } from 'nanoid'
 import { useSelector } from 'react-redux'
 import moment from 'moment'
 
@@ -34,8 +33,8 @@ export const HotelsWrapper = () => {
       </div>
       <Slider className={s.carousel} {...settings}>
         {imgs.map((img) => (
-          <div key={nanoid()} className={s.imgWrap}>
-            <img className={s.img} src={img} alt="фото" />
+          <div key={img.id} className={s.imgWrap}>
+            <img className={s.img} src={img.img} alt="фото" />
           </div>
         ))}
       </Slider>
