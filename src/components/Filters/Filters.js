@@ -17,7 +17,9 @@ const FiltersSchema = Yup.object().shape({
   checkIn: Yup.date()
     .required('Обязательное поле!')
     .typeError('Поле должно содержать дату!'),
-  daysNumber: Yup.number().required('Обязательное поле!'),
+  daysNumber: Yup.number()
+    .required('Обязательное поле!')
+    .typeError('Поле должно содержать число!'),
 })
 
 export const Filters = () => {

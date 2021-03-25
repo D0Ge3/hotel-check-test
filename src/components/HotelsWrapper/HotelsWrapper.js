@@ -8,6 +8,7 @@ import { HotelsList } from '../HotelsList/HotelsList'
 import { CustomScrollbars } from '../../ui/CustomScrollbars/CustomScrollbars'
 
 import s from './HotelsWrapper.module.scss'
+import { Loader } from '../../ui/Loader/Loader'
 
 export const HotelsWrapper = () => {
   const settings = {
@@ -21,6 +22,7 @@ export const HotelsWrapper = () => {
   const countFav = useSelector((state) => state.hotels.favourites.length)
   const imgs = useSelector((state) => state.hotels.imgs)
   const filters = useSelector((state) => state.hotels.filters)
+  const isLoading = useSelector((state) => state.app.isLoading)
   const checkInDate = moment(filters.checkIn).format('LL')
 
   return (
@@ -43,7 +45,13 @@ export const HotelsWrapper = () => {
       </span>
       <CustomScrollbars style={{ height: '529px' }}>
         <div className={s.listWrap}>
-          <HotelsList hotels={hotels} showIcon />
+          {isLoading ? (
+            <Loader
+              style={{ position: 'absolute', top: '214.5px', left: '257px' }}
+            />
+          ) : (
+            <HotelsList hotels={hotels} showIcon />
+          )}
         </div>
       </CustomScrollbars>
     </div>
