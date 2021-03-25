@@ -46,7 +46,6 @@ export const Filters = () => {
       moment(checkIn).add(daysNumber, 'd').format('YYYY-MM-DD'),
       location
     )
-    console.log('useEffect')
     // eslint-disable-next-line
   }, [])
 
